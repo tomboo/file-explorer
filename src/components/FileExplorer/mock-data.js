@@ -11,7 +11,7 @@ export const mock_data = {
   // didInvalidate: false,
 
   // Cache of all feteched objects, indexed by GID
-  asanaObjects: {
+  items: {
     "4708136377445": {
       gid: "4708136377445",
       resource_type: ResourceType.USER,
@@ -62,7 +62,7 @@ export const mock_data = {
 
   // Tree View
   // TODO: Same task can be a member of multiple projects
-  asanaTree: {
+  view: {
     "4708136377445": {
       gid: "4708136377445",
       isRoot: true,

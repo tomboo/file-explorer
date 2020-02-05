@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Tree from "./Tree";
-import { mock_data } from "./data";
-import { stringify } from "./utilities";
+import { mock_data } from "./mock-data";
+import { stringify } from "../utilities";
 
 const StyledFileExplorer = styled.div`
   width: 800px;
@@ -29,10 +29,10 @@ function FileExplorer() {
   if (selectedNode) {
     nodeDetail = (
       <div>
-        <h2>List View</h2>
+        <h2>Node Info</h2>
         {stringify(selectedNode)}
-        <h2>Details View</h2>
-        {stringify(mock_data.asanaObjects[selectedNode.gid])}
+        <h2>Node Details</h2>
+        {stringify(mock_data.items[selectedNode.gid])}
       </div>
     );
   } else {

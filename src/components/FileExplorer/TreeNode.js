@@ -9,8 +9,8 @@ import {
 import styled from "styled-components";
 // import last from 'lodash/last';
 import PropTypes from "prop-types";
-import { ResourceType } from "./data";
-import { mock_data } from "./data";
+import { ResourceType } from "./mock-data";
+import { mock_data } from "./mock-data";
 
 const getPaddingLeft = (level, type) => {
   let paddingLeft = level * 20;
@@ -35,7 +35,7 @@ const NodeIcon = styled.div`
 `;
 
 function getNodeLabel(node) {
-  return mock_data.asanaObjects[node.gid].name;
+  return mock_data.items[node.gid].name;
 }
 
 // TreeNode Component
@@ -47,11 +47,13 @@ function TreeNode(props) {
   return (
     <React.Fragment>
       <StyledTreeNode level={level} type={node.resource_type}>
+        {/* Node open/closed icon (clickable) */}
         <NodeIcon onClick={() => onToggle(node)}>
           {node.resource_type !== ResourceType.TASK &&
             (node.isOpen ? <FaChevronDown /> : <FaChevronRight />)}
         </NodeIcon>
 
+        {/* Node type icon*/}
         <NodeIcon marginRight={10}>
           {node.resource_type === ResourceType.TASK && <FaFile />}
           {node.resource_type !== ResourceType.TASK && node.isOpen && (
@@ -62,6 +64,7 @@ function TreeNode(props) {
           )}
         </NodeIcon>
 
+        {/* Node Label (selectable) */}
         <span role="button" onClick={() => onNodeSelect(node)}>
           {getNodeLabel(node)}
         </span>

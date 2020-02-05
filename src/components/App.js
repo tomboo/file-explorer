@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import FileExplorer from "./FileExplorer";
+import FileExplorer from "./FileExplorer/FileExplorer";
 
 export default function App() {
   return (

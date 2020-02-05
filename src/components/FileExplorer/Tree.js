@@ -4,13 +4,13 @@ import values from "lodash/values";
 import PropTypes from "prop-types";
 
 import TreeNode from "./TreeNode";
-import { mock_data } from "./data";
+import { mock_data } from "./mock-data";
 
 // Tree Component
 function Tree(props) {
   console.log('Tree');
   console.log(props);
-  const [nodes, setNodes] = useState(mock_data.asanaTree);
+  const [nodes, setNodes] = useState(mock_data.view);
 
   function getRootNodes() {
     return values(nodes).filter(node => node.isRoot === true);
