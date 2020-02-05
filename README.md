@@ -1,3 +1,6 @@
+## Description
+React Component: Simple tree view
+
 ## Technology Stack
 - React
 - React Hooks (useState)
