@@ -23,8 +23,7 @@ function Tree(props) {
 
   function onToggle(node) {
     let newNode = {...node};
-    newNode.isOpen = !newNode.isOpen;
-    
+    newNode.isOpen = !newNode.isOpen;    
     setNodes({
       ...nodes,
       [node.gid]: newNode
