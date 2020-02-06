@@ -65,33 +65,50 @@ export const mock_data = {
   view: {
     "4708136377445": {
       gid: "4708136377445",
+      resource_type: ResourceType.USER,
+      name: "Tom",
       isRoot: true,
       isOpen: true,
       children: ["01", "02"]
     },
     "01": {
       gid: "01",
+      resource_type: ResourceType.WORKSPACE,
+      name: "Personal",
       children: ["001"]
     },
     "02": {
       gid: "02",
+      resource_type: ResourceType.WORKSPACE,
+      name: "Work",
       children: ["002", "003"]
     },
     "001": {
-      gid: "001"
+      gid: "001",
+      resource_type: ResourceType.PROJECT,
+      name: "Project1",
     },
     "002": {
       gid: "002",
+      resource_type: ResourceType.PROJECT,
+      name: "Project2",
       children: ["0001"]
     },
     "003": {
-      gid: "003"
+      gid: "003",
+      resource_type: ResourceType.PROJECT,
+      name: "Project3",
+      children: ["0001", "0002"]
     },
     "0001": {
-      gid: "0001"
+      gid: "0001",
+      resource_type: ResourceType.TASK,
+      name: "Task1"
     },
     "0002": {
-      gid: "0002"
+      gid: "0002",
+      resource_type: ResourceType.TASK,
+      name: "Task2"
     }
   }
 };

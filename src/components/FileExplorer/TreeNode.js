@@ -10,7 +10,6 @@ import styled from "styled-components";
 // import last from 'lodash/last';
 import PropTypes from "prop-types";
 import { ResourceType } from "./mock-data";
-import { mock_data } from "./mock-data";
 
 const getPaddingLeft = (level, type) => {
   let paddingLeft = level * 20;
@@ -35,7 +34,7 @@ const NodeIcon = styled.div`
 `;
 
 function getNodeLabel(node) {
-  return mock_data.items[node.gid].name;
+  return node.name;
 }
 
 // TreeNode Component
@@ -53,23 +52,13 @@ function TreeNode(props) {
             (node.isOpen ? <FaChevronDown /> : <FaChevronRight />)}
         </NodeIcon>
 
-        {/* Node type icon*/}
-        <NodeIcon marginRight={10}>
-          {node.resource_type === ResourceType.TASK && <FaFile />}
-          {node.resource_type !== ResourceType.TASK && node.isOpen && (
-            <FaFolderOpen />
-          )}
-          {node.resource_type !== ResourceType.TASK && !node.isOpen && (
-            <FaFolder />
-          )}
-        </NodeIcon>
-
         {/* Node Label (selectable) */}
         <span role="button" onClick={() => onNodeSelect(node)}>
           {getNodeLabel(node)}
         </span>
       </StyledTreeNode>
 
+      {/* Children */}
       {node.isOpen &&
         getChildNodes(node).map(childNode => (
           <TreeNode
